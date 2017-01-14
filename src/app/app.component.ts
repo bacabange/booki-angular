@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+	public title: string;
+	public description: string;
+
+	constructor() {
+		this.title = 'Booki App';
+		this.description = 'Booki es una aplicación que permite guardar el progreso que llevamos leyendo uno o varios libros.';
+	}
 }

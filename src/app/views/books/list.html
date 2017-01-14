@@ -1,5 +1,28 @@
-<h2>{{ title }}</h2>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ title }}</h3>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Title</td>
+				<td>Author</td>
+				<td>Actions</td>
+			</tr>
+		</thead>
 
-<ul id="books-list">
-	<li *ngFor="let book of books">{{ book.name }}</li>
-</ul>
+		<tbody>
+			<tr *ngFor="let book of books">
+				<td>{{ book.id }}</td>
+				<td>{{ book.name }}</td>
+				<td>{{ book.author }}</td>
+				<td>
+					<a href="#" class="btn btn-default btn-xs">view</a>
+					<a href="#" class="btn btn-primary btn-xs">update</a>
+					<a href="#" class="btn btn-danger btn-xs">delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

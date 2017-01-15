@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">{{ title }}</h3>
+	</div>
+	<div class="panel-body">
+		<div class="row" *ngIf="book">
+			<div class="col-md-6">
+				<dl>
+					<dt>Name</dt>
+					<dd>{{ book.name }}</dd>
+
+					<dt>Author</dt>
+					<dd>{{ book.author }}</dd>
+
+					<dt>Pages</dt>
+					<dd>{{ book.pages }}</dd>
+
+					<dt>Started In</dt>
+					<dd>{{ book.started_in }}</dd>
+				</dl>
+			</div>
+
+			<div class="col-md-6">
+				<dl>
+
+					<dt>Description</dt>
+					<dd>{{ book.description }}</dd>
+
+					<dt>User</dt>
+					<dd>{{ book.user_id }}</dd>
+
+					<dt>State</dt>
+					<dd>{{ book.state_id }}</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>

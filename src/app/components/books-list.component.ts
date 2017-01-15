@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router'
 
 import { BookService } from '../services/book.service';
 import { Book } from '../models/book';
@@ -18,11 +19,10 @@ export class BooksListComponent implements OnInit {
 	constructor(
 		private _bookService: BookService
 	) {
-		this.title = 'Lista de Libros';
+		this.title = 'List of Books';
 	}
 
 	ngOnInit() {
-		console.log('Componente cargado putito');
 		this._bookService.getBooks().subscribe(
 			result => {
 				if( ! result.success) {

@@ -7,7 +7,11 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Booki</a>
+			<a class="navbar-brand" [routerLink]="['/']">Booki</a>
+
+			<ul class="nav navbar-nav">
+				<li><a [routerLink]="['/book-create']">Add Book</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>

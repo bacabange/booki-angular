@@ -31,4 +31,16 @@ export class BookService {
 		return this._http.get(this.url + 'books/' + id, {search: params})
 						.map(res => res.json());
 	}
+
+	addBook(book: Book){
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('api_token', this.api_key);
+
+		let json = JSON.stringify(book);
+		params.set('data', json);
+
+		let headers = new Headers({'Accept': 'application/json'});
+		return this._http.post(this.url + 'books/', params, {headers: headers})
+						.map(res => res.json());
+	}
 }

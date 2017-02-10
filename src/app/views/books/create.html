@@ -36,18 +36,6 @@
 						<span class="help-block" *ngIf="started_in.touched && !started_in.valid">The Started date is invalid</span>
 					</div>
 
-					<div class="form-group" [ngClass]="{'has-error': user_id.touched && !user_id.valid }">
-						<label for="user_id">User ID</label>
-						<input name="user_id" type="text" class="form-control" #user_id="ngModel" [(ngModel)]="book.user_id" required>
-						<span class="help-block" *ngIf="user_id.touched && !user_id.valid">The User ID is invalid</span>
-					</div>
-
-					<div class="form-group" [ngClass]="{'has-error': state_id.touched && !state_id.valid }">
-						<label for="state_id">State ID</label>
-						<input name="state_id" type="text" class="form-control" #state_id="ngModel" [(ngModel)]="book.state_id" required>
-						<span class="help-block" *ngIf="state_id.touched && !state_id.valid">The State ID is invalid</span>
-					</div>
-
 					<button type="submit" class="btn btn-primary pull-right">Save</button>
 				</form>
 			</div>

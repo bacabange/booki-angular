@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, URLSearchParams, QueryEncoder } from '@angular/http';
+import { Http, Response, Headers, URLSearchParams, QueryEncoder, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
@@ -34,13 +34,17 @@ export class BookService {
 
 	addBook(book: Book){
 		let params: URLSearchParams = new URLSearchParams();
-		params.set('api_token', this.api_key);
+		let book_json = book;
+		book_json['api_token'] = this.api_key;
+		let json = JSON.stringify(book_json);
 
-		let json = JSON.stringify(book);
-		params.set('data', json);
 
-		let headers = new Headers({'Accept': 'application/json'});
-		return this._http.post(this.url + 'books/', params, {headers: headers})
+		let headers = new Headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+
+		// let headers = new Headers({'Accept': 'application/json'});
+		return this._http.post(this.url + 'books', json, options)
 						.map(res => res.json());
 	}
 }

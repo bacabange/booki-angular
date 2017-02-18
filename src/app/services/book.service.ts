@@ -42,8 +42,6 @@ export class BookService {
 		let headers = new Headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
-
-		// let headers = new Headers({'Accept': 'application/json'});
 		return this._http.post(this.url + 'books', json, options)
 						.map(res => res.json());
 	}

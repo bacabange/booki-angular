@@ -19,8 +19,8 @@
 				<td>{{ book.author }}</td>
 				<td>
 					<a [routerLink]="['/book', book.id]" class="btn btn-default btn-xs">view</a>
-					<a href="#" class="btn btn-primary btn-xs">update</a>
-					<a href="#" class="btn btn-danger btn-xs">delete</a>
+					<a [routerLink]="['/book-edit', book.id]" class="btn btn-primary btn-xs">edit</a>
+					<a [routerLink]="['/book-edit', book.id]" class="btn btn-danger btn-xs">delete</a>
 				</td>
 			</tr>
 		</tbody>

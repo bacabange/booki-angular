@@ -25,7 +25,7 @@ export class BookFormComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.book = new Book(0, "", "", 0, "", "", 1, 1, "", "");
+		this.book = new Book(0, "", "", 0, "", "", 21, 1, "", "");
 	}
 
 	public onSubmit(){
@@ -36,6 +36,7 @@ export class BookFormComponent implements OnInit {
 					alert('Error en el servidor');
 				}
 				this.book = result.data;
+				this._router.navigate(['/']);
 			},
 
 			error => {

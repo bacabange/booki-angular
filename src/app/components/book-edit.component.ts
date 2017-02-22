@@ -51,20 +51,23 @@ export class BookEditComponent implements OnInit {
 	}
 
 	public onSubmit(){
-		console.log(this.book);
-		/*this._bookService.addBook(this.book).subscribe(
-			result => {
-				if( ! result.success) {
-					alert('Error en el servidor');
-				}
-				this.book = result.data;
-				this._router.navigate(['/']);
-			},
+		this._route.params.forEach((params: Params) => {
+			let id = params['id'];
 
-			error => {
-				this.errorMessage = <any>error
-				console.log(this.errorMessage);
-			}
-		);*/
+			this._bookService.updateBook(id, this.book).subscribe(
+				result => {
+					if( ! result.success) {
+						alert('Error en el servidor');
+					}
+					this.book = result.data;
+					this._router.navigate(['book/', this.book.id]);
+				},
+
+				error => {
+					this.errorMessage = <any>error
+					console.log(this.errorMessage);
+				}
+			);
+		});
 	}
 }

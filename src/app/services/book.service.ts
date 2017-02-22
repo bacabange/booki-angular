@@ -45,4 +45,18 @@ export class BookService {
 		return this._http.post(this.url + 'books', json, options)
 						.map(res => res.json());
 	}
+
+	updateBook(id: number, book: Book){
+		let params: URLSearchParams = new URLSearchParams();
+		let book_json = book;
+		book_json['api_token'] = this.api_key;
+		let json = JSON.stringify(book_json);
+
+
+		let headers = new Headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+		return this._http.put(this.url + 'books/' + id, json, options)
+						.map(res => res.json());
+	}
 }

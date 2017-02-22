@@ -9,8 +9,8 @@ import { BookEditComponent } from './components/book-edit.component';
 const appRoutes: Routes = [
 	{ path: '', component: BooksListComponent },
 	{ path: 'book/:id', component: BookDetailComponent },
-	{ path: 'book-edit/:id', component: BookEditComponent },
 	{ path: 'book-create', component: BookFormComponent },
+	{ path: 'book-edit/:id', component: BookEditComponent },
 	{ path: '**', component: BooksListComponent },
 ];
 

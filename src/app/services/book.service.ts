@@ -59,4 +59,15 @@ export class BookService {
 		return this._http.put(this.url + 'books/' + id, json, options)
 						.map(res => res.json());
 	}
+
+	deleteBook(id: number){
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('api_token', this.api_key);
+
+		let headers = new Headers({ 'Accept': 'application/json', 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+		return this._http.delete(this.url + 'books/' + id, {search: params})
+						.map(res => res.json());
+	}
 }

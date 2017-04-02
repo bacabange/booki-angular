@@ -16,6 +16,8 @@ export class BooksListComponent implements OnInit {
 	books: Book[];
 	errorMessage: any;
 
+	confirm: any;
+
 	constructor(
 		private _bookService: BookService
 	) {
@@ -29,6 +31,31 @@ export class BooksListComponent implements OnInit {
 					alert('Error en el servidor');
 				}
 				this.books = result.data;
+			},
+
+			error => {
+				this.errorMessage = <any>error
+				console.log(this.errorMessage);
+			}
+		)
+	}
+
+	onDeleteConfirm(id){
+		this.confirm = id;
+	}
+
+	onCancelConfirm(id){
+		this.confirm = null;
+	}
+
+	onDeleteBook(id: number){
+		this._bookService.deleteBook(id).subscribe(
+			result => {
+				if( ! result.success) {
+					alert('Error en el servidor');
+				}
+
+				this.ngOnInit();
 			},
 
 			error => {
